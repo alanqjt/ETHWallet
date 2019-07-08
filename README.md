@@ -26,3 +26,15 @@ ScreenShot
 
 
 <img src="img/backup.gif" width="360"> 
+
+
+
+说明
+====
+此项目基于web3j开发的一个android的ETHWallet,其中包含了助记词生成、创建钱包、导入钱包等基础方法。并且包含了btc钱包的生成过程。\n
+使用原生web3j生成ECKeyPair的时候 低端机型(华为P6)会闪退，解决方法把当需要调用web3j 调用SCrypt.scrypt()方法的时候把java算法换成使用JNI C库中的代码
+
+
+
+
+
