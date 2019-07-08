@@ -3,6 +3,19 @@
 此项目基于web3j开发的一个android的ETHWallet,其中包含了助记词生成、创建钱包、导入钱包等基础方法。并且包含了btc钱包的生成过程
 使用原生web3j生成ECKeyPair的时候 低端机型(华为P6)会闪退，原因是算法复杂度高，CPU使用过高,java运行的速度慢。解决方法把当需要调用web3j 调用SCrypt.scrypt()方法的时候把java算法换成使用JNI C库中的代码
 
+助记词说明
+---------
+如果想把助记词换成日文、法文、中文等(自己在BIP39，wordlists包创建)，Japanese.INSTANCE  French.INSTANCE
+```Java
+        // 12ge 英文单词
+        //随机生成助记词
+        StringBuilder sb = new StringBuilder();
+        byte[] entropy = new byte[Words.TWELVE.byteLength()];
+        new SecureRandom().nextBytes(entropy);
+        new MnemonicGenerator(English.INSTANCE).createMnemonic(entropy, sb::append);
+        System.out.println(sb.toString());
+        String[] parts = sb.toString().split(" ");
+```
 Btc钱包地址生成过程
 ====
 如果有兴趣 务必运行 BtcTest  Module 中的com.alan.btctest.TestBtc
