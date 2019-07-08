@@ -5,7 +5,7 @@ ScreenShot
 ---------
 <img src="img/ethWallet1.png" width="360">    <img src="img/ethWallet2.png" width="360"> 
 
-部分界面效果
+         
 ---------
 <img src="img/ethWallet3.png" width="360">    <img src="img/ethWallet4.png" width="360"> 
 
