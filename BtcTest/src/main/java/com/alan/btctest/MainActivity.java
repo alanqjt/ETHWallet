@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         mnemonicWordsInAList.add("chef");
 
         try {
-          BtcWallet btcWallet =   BtcUtils.createBTCWalletFromWords(mnemonicWordsInAList);
+          BtcWallet btcWallet =   BtcUtils.createBTCWalletFromWords(mnemonicWordsInAList,0);
 
           text.setText(btcWallet.toString());
 

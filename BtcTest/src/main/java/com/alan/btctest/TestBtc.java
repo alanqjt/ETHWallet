@@ -46,7 +46,7 @@ public class TestBtc {
 //            mnemonicWordsInAList.add(parts[i]);
         }
         try {
-            BtcUtils.createBTCWalletFromWords(mnemonicWordsInAList);
+            BtcUtils.createBTCWalletFromWords(mnemonicWordsInAList,0);
             System.out.println("生成种子的助记词 不一定是英文单词，也可以是 French，Japanese，Spanish。理论上任何语言都可以所以肯定是支持中文的助记词的。自己动手在bip39库增加一个就行 com.quincysx.crypto.bip39.wordlists");
             System.out.println("生成的地址是否有效 查询地址 ：http://lenschulwitz.com/base58");
             System.out.println("bitcoin地址是如何生成的： https://www.jianshu.com/p/954e143e97d2");

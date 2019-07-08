@@ -18,79 +18,57 @@ import static org.bitcoinj.crypto.HDUtils.parsePath;
 public class BtcUtils {
 
 
-    public static BtcWallet createBTCWalletFromWords(List<String> mnemonicWordsInAList) throws Exception {
+    public static BtcWallet createBTCWalletFromWords(List<String> mnemonicWordsInAList, int n) throws Exception {
         BtcWallet btcWallet = new BtcWallet();
         //助记词种子 byte
         byte[] seed = getSeed(mnemonicWordsInAList);
 
         DeterministicSeed deterministicSeed = new DeterministicSeed(mnemonicWordsInAList, seed, "", 0);
 
-
         DeterministicKeyChain deterministicKeyChain = DeterministicKeyChain.builder().seed(deterministicSeed).build();
         //这里运用了BIP44里面提到的算法, 44'是固定的, 后面的一个0'代表的是币种BTC
-
 
         //EIP85  提议 以太坊 路径为 :  m/44'/60'/a'/0/n
         //
         //这里 的 a 表示帐号，n 是第 n 生成的地址，60 是在 SLIP44 提案中暂定的，因为 BIP44 只定义到 0 - 31。
 
+        byte[] privKeyBTC = deterministicKeyChain.getKeyByPath(parsePath("M/44/0/0/0/" + n), true).getPrivKeyBytes();
 
-        for (int i = 0; i < 1; i++) {
-            byte[] privKeyBTC = deterministicKeyChain.getKeyByPath(parsePath("M/44/0/0/0/" + i), true).getPrivKeyBytes();
+        // 比特币创建的钱包 与连接的网络 有关  如果 选 TestNet   生成的地址一般是以 N \M 开头   MainNet 生成的地址是以 1  \ 3  开头
+        ECKey ecKey = ECKey.fromPrivate(privKeyBTC);
+        String publickey = Numeric.toHexStringNoPrefixZeroPadded(new BigInteger(ecKey.getPubKey()), 66);
+        String privateKey = ecKey.getPrivateKeyEncoded(MainNetParams.get()).toString();
+        System.out.println(" ----------------主钱包的 主公私钥 和地址---------------------------");
+        System.out.println("主 address:" + ecKey.toAddress(MainNetParams.get()).toBase58());
+        System.out.println("测 address:" + ecKey.toAddress(TestNet3Params.get()).toBase58());
+        System.out.println(" publickey:" + publickey.length());
+        System.out.println(" publickey:" + publickey);
+        System.out.println(" privateKey:" + privateKey.length());
+        System.out.println(" privateKey:" + privateKey);
 
-            // 比特币创建的钱包 与连接的网络 有关  如果 选 TestNet   生成的地址一般是以 N \M 开头   MainNet 生成的地址是以 1  \ 3  开头
-            ECKey ecKey = ECKey.fromPrivate(privKeyBTC);
-            String publickey = Numeric.toHexStringNoPrefixZeroPadded(new BigInteger(ecKey.getPubKey()), 66);
-            String privateKey = ecKey.getPrivateKeyEncoded(MainNetParams.get()).toString();
-            System.out.println(i + " ----------------主钱包的 主公私钥 和地址---------------------------");
-            System.out.println(i + "主 address:" + ecKey.toAddress(MainNetParams.get()).toBase58());
-            System.out.println(i + "测 address:" + ecKey.toAddress(TestNet3Params.get()).toBase58());
-            System.out.println(i + " publickey:" + publickey.length());
-            System.out.println(i + " publickey:" + publickey);
-            System.out.println(i + " privateKey:" + privateKey.length());
-            System.out.println(i + " privateKey:" + privateKey);
+        System.out.println("head=" + MainNetParams.get().getAddressHeader());
 
-            System.out.println("head=" + MainNetParams.get().getAddressHeader());
+        System.out.println("-----------------通过公钥获取地址--------------------------");
 
-            String msg = "600FFE422B4E00731A59557A5CCA46CC183944191006324A447BDB2D98D4B408";
-            String msg2 = "010966776006953D5567439E5E39F86A0D273BEE";
+        String testNetAddress = getAddress(publickey, true, false);
 
-            System.out.println(i + " msg1:" + msg.length());
-            System.out.println(i + " msg2:" + msg2.length());
-            System.out.println(i + " msg:" + ecKey.getPublicKeyAsHex().length());
-            System.out.println(i + " msg:" + ecKey.getPublicKeyAsHex());
-            System.out.println(i + " msg:" + ecKey.getPubKeyHash().length);
-            System.out.println(i + " msg:" + ecKey.getPubKey().length);
+        System.out.println("-----------------Testnet pub key   n/m开头--------------------------");
 
+        String mainNetAddress_Standard_Public = getAddress(publickey, false, false);
+        System.out.println("-----------------P2PKH address    1开头--------------------------");
+        String mainNetAddress_Multi_Signature = getAddress(publickey, false, true);
+        System.out.println("-----------------P2SH address     3开头--------------------------");
 
-            System.out.println("-----------------通过公钥获取地址--------------------------");
+        btcWallet.setAddress_M(mainNetAddress_Standard_Public);
+        btcWallet.setAddress_S(mainNetAddress_Multi_Signature);
+        btcWallet.setAddress_T(testNetAddress);
 
-            String testNetAddress = getAddress(publickey, true, false);
-
-            System.out.println("-----------------Testnet pub key   n/m开头--------------------------");
-
-            String mainNetAddress_Standard_Public = getAddress(publickey, false, false);
-            System.out.println("-----------------P2PKH address    1开头--------------------------");
-            String mainNetAddress_Multi_Signature = getAddress(publickey, false, true);
-            System.out.println("-----------------P2SH address     3开头--------------------------");
-
-            btcWallet.setAddress_M(mainNetAddress_Standard_Public);
-            btcWallet.setAddress_S(mainNetAddress_Multi_Signature);
-            btcWallet.setAddress_T(testNetAddress);
-
-            btcWallet.setPublickey(publickey);
-            btcWallet.setPrivateKey(privateKey);
-            btcWallet.setMnemonicWords(mnemonicWordsInAList);
+        btcWallet.setPublickey(publickey);
+        btcWallet.setPrivateKey(privateKey);
+        btcWallet.setMnemonicWords(mnemonicWordsInAList);
 
 
-            System.out.println(btcWallet.toString());
-
-
-        }
-
-
-
-
+        System.out.println(btcWallet.toString());
 
 
         return btcWallet;
@@ -99,9 +77,9 @@ public class BtcUtils {
 
 
     /**
-     * @param PKY       公钥
-     * @param isTestNet 主网 还是测试网
-     * @param isP2SHAddress  P2SH address
+     * @param PKY           公钥
+     * @param isTestNet     主网 还是测试网
+     * @param isP2SHAddress P2SH address
      **/
     public static String getAddress(String PKY, boolean isTestNet, Boolean isP2SHAddress) throws Exception {
         byte[] publicKey = new BigInteger(PKY, 16).toByteArray();
