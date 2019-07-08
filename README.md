@@ -59,8 +59,8 @@ ScreenShot
 导入钱包
 -------
 ```Java
-         //助记词导入钱包
-        EthWalletManager wManager = new EthWalletManager();
+        //三种方法导入
+        EthWalletManager wManager = new EthWalletManager();//助记词导入钱包
         ECKeyPair ecKeyPair = wManager.generateECKeyPairByMnemonicWords(mnemonicWordsInAList, password);
         ECKeyPair ecKeyPair = wManager.generateECKeyPairByKeyStore(keystore_content, password) //keystore导入钱包
         ECKeyPair ecKeyPair = wManager.generateECKeyPairByPK(pk_text, password);//私钥导入钱包
