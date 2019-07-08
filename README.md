@@ -1,7 +1,7 @@
 ScreenShot
 ==========
 
-![test image size](img/ethWallet1.png){:height="100px" width="400px"}
+<img src="img/ethWallet1.png" width="360">
 
 ![](img/ethWallet1.png)  ![](img/ethWallet2.png)  ![](img/ethWallet3.png)  ![](img/ethWallet4.png)  
 
