@@ -41,7 +41,7 @@ ScreenShot
 -------
 ```Java
 EthWalletManager wManager = new EthWalletManager();
-            wManager.createWallet(WalletName, Password1, PasswordHit, false, new EthWalletCallBack() {
+            wManager.createWallet(walletName, password, passwordHit, false, new EthWalletCallBack() {
 
                 @Override
                 public void onSuccessCallBack(EthWallet ethWallet, String fileName, String walletAddress, String storeText) throws Exception {
@@ -56,8 +56,21 @@ EthWalletManager wManager = new EthWalletManager();
 ```
 
 
+导入钱包
+-------
+EthWalletManager wManager = new EthWalletManager();
+ECKeyPair ecKeyPair = wManager.generateECKeyPairByMnemonicWords(mnemonicWordsInAList, password);
+                            wManager.importWallet(ecKeyPair, walletName, password, PasswordHit, mnemonicWords, new EthWalletCallBack() {
+                                @Override
+                                public void onSuccessCallBack(EthWallet ethWallet, String fileName, String walletAddress, String storeText) throws Exception {
 
+                                }
 
+                                @Override
+                                public void onErrorCallBack(Exception e) {
+
+                                }
+                            });
 
 
 
