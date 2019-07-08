@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginBottom="10dp"
+    card_view:cardCornerRadius="10dp"
+    card_view:cardElevation="1dp">
+
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="12dp"
+            android:src="@drawable/wallet_icon_black"
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toTopOf="@+id/text_WalletName" />
+
+        <TextView
+            android:id="@+id/text_WalletName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="12dp"
+            android:text="1號錢包"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            card_view:layout_constraintStart_toEndOf="@+id/imageView"
+            card_view:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text_WalletAddress"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="0XE715615156151548515"
+            android:textColor="#303133"
+            android:textSize="12sp"
+            card_view:layout_constraintStart_toStartOf="@+id/text_WalletName"
+            card_view:layout_constraintTop_toBottomOf="@+id/text_WalletName" />
+
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="13dp"
+            android:background="@color/gray_f6"
+            card_view:layout_constraintTop_toBottomOf="@+id/text_WalletAddress" />
+
+        <TextView
+            android:id="@+id/text_Message_Content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="13dp"
+            android:layout_marginBottom="8dp"
+            android:text="0 ether"
+            android:textColor="#303133"
+            android:textSize="14sp"
+            card_view:layout_constraintBottom_toBottomOf="parent"
+            card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintTop_toBottomOf="@id/view2" />
+
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:layout_marginRight="13dp"
+            android:src="@mipmap/ic_wallet_managment_more"
+            card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintTop_toTopOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
+
+
+</android.support.v7.widget.CardView>

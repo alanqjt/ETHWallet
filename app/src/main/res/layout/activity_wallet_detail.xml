@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/ll_head"
+        android:layout_width="match_parent"
+        android:layout_height="210dp"
+        android:background="@drawable/background_test"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp">
+
+            <ImageView
+                android:id="@+id/img_goback"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:padding="5dp"
+                android:src="@mipmap/ic_login_back" />
+
+            <TextView
+                android:id="@+id/text_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textColor="@color/common_text_black"
+                android:textSize="18sp" />
+
+
+            <TextView
+                android:id="@+id/text_save"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:text="@string/save"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="16dp"
+            android:src="@drawable/wallet_icon_white" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/fragment_item_margin"
+            android:gravity="center"
+            android:text="0 Either"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/text_WalletAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+
+    <ScrollView
+        app:layout_constraintTop_toBottomOf="@id/ll_head"
+        android:layout_width="match_parent"
+        android:layout_height="250dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+          >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/wallet_name"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/ed_WalletName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="8dp"
+                android:background="@null"
+                android:textColor="@color/black"
+                android:textColorHint="@color/darkgray"
+                android:textSize="14sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="8dp"
+                android:background="@color/gray_f6"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/ll_WalletPasswordHint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="@string/password_hint"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <com.maksim88.passwordedittext.PasswordEditText
+                    android:id="@+id/ed_WalletPasswordHint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="@null"
+                    android:inputType="textPassword"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    app:pet_disableIconAlpha="true" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="@color/gray_f6"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_modify_pwd"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:drawableRight="@mipmap/ic_wallet_managment_more"
+                android:gravity="center_vertical"
+                android:text="@string/change_password"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="8dp"
+                android:background="@color/gray_f6" />
+
+            <TextView
+                android:id="@+id/tv_export_pk"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:drawableRight="@mipmap/ic_wallet_managment_more"
+                android:gravity="center_vertical"
+                android:text="@string/export_private_key"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:background="@color/gray_f6" />
+
+            <TextView
+                android:id="@+id/tv_export_ks"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:drawableRight="@mipmap/ic_wallet_managment_more"
+                android:gravity="center_vertical"
+                android:text="@string/export_keystore"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:background="@color/gray_f6" />
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
+    <Button
+        android:id="@+id/btn_backup"
+        style="?android:borderlessButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="19dp"
+        android:layout_marginEnd="19dp"
+        android:layout_marginBottom="12dp"
+        android:background="@drawable/shape_btn_blue"
+        android:text="@string/backup_mnemonics"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/btn_DelWallet" />
+
+    <Button
+        android:id="@+id/btn_DelWallet"
+        style="?android:borderlessButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="19dp"
+        android:layout_marginEnd="19dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/shape_btn_gray"
+        android:text="@string/delete_wallet"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+
+</android.support.constraint.ConstraintLayout>

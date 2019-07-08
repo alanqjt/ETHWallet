@@ -1,0 +1,127 @@
+<resources>
+    <string name="app_name">MyWallet</string>
+
+    <string name="mine_wallet_ctrl">钱包管理</string>
+    <string name="wallet_management_creat_wallet">创建钱包</string>
+
+    <string name="wallet_name_cannot_be_empty">钱包名不能为空</string>
+    <string name="password_regex">您的密码必须符合:\n至少8个以上的字符\n大写与小写字母\n至少一个数字和特殊字符</string>
+    <string name="password_cannot_be_empty">密码不能为空</string>
+
+    <!--improt wallet-->
+    <string name="wallet_management_import_wallet">导入钱包</string>
+    <string name="mnemonic">助记词</string>
+    <string name="official">官方钱包</string>
+    <string name="private_key">私钥</string>
+    <string name="watch">观察</string>
+    <string name="mnemonic_text_tip">助记词，按空格分隔</string>
+    <string name="password">密码</string>
+    <string name="repeat_password">重复密码</string>
+    <string name="password_hint_option">密码提示信息(可不填)</string>
+    <string name="start_importing">开始导入</string>
+    <string name="what_is_a_mnemonic">什么是助记词？</string>
+    <string name="agree_on_tip1">我已仔细阅读并同意</string>
+    <string name="agree_on_tip2">服务及隐私条款</string>
+    <string name="mnemonic_alert_dialog_tip1">请填写助记词和密码</string>
+    <string name="mnemonic_alert_dialog_tip2">助记词的长度不匹配</string>
+    <string name="mnemonic_alert_dialog_tip3">助记词无效</string>
+    <string name="pwd_alert_dialog_tip1">请输入不少于8位字符的密码</string>
+    <string name="pwd_alert_dialog_tip2">密码不一致,请重新输入</string>
+
+    <string name="official_text_tip">直接复制粘贴以太坊官方钱包 keystore 文件内容至输入框。或者通过生成 keystore 内容的二维码，扫描录入。</string>
+    <string name="keystore_content_tip">keystore 文本内容</string>
+    <string name="keystore_password_tip">keystore 密码</string>
+    <string name="what_is_a_keystore">什么是 keystore?</string>
+    <string name="official_alert_dialog_tip1">请输入正确的keystore和密码</string>
+    <string name="official_alert_dialog_tip2">keystore文件无效</string>
+    <string name="official_alert_dialog_tip3">keystore文件密码无效</string>
+
+    <string name="private_key_text_tip">明文私钥</string>
+    <string name="private_key_pwd_tip1">不少于8位字符,建议混合大小写字母 、 数字 、 特殊符号</string>
+    <string name="private_key_pwd_tip2">密码强度太弱，极易被黑客破解</string>
+    <string name="pwd_level0">弱</string>
+    <string name="pwd_level1">中</string>
+    <string name="pwd_level2">强</string>
+    <string name="pwd_level3">极强</string>
+    <string name="what_is_a_private_key">什么是私钥</string>
+    <string name="private_key_alert_dialog_tip1">请填写私钥和密码</string>
+    <string name="private_key_alert_dialog_tip2">无效私钥</string>
+
+    <string name="watch_text_tip1">观察钱包不需要导入私钥,只导入钱包地址,进行日常查看账户、交易和接受通知。大额资金的私钥建议使用冷钱包或硬件钱包管理,避免泄露被盗。</string>
+    <string name="watch_content_tip">扫码或输入钱包地址</string>
+    <string name="watch_text_tip2">注意:观察钱包发送交易时需要冷钱包配合签名。你可以使用另一台闲置手机，开飞行模式作为冷钱包，导入钱包私钥,配合离线签名</string>
+    <string name="how_offline_signing_works">如何使用冷钱包进行离线签名</string>
+    <string name="watch_alert_dialog_tip1">无效地址</string>
+
+    <string name="repeat_import_dialog_tip">钱包已存在,是否设置为新密码?(请牢记钱包新密码)</string>
+
+    <string name="password_hit_option">密码提示(可不填)</string>
+    <string name="password_warning">·密码用于保护私钥和交易授权，强度非常重要\n·我们不存储密码，也无法帮您找回，请务必牢记</string>
+
+
+
+    <string name="name_wallet">钱包名称</string>
+
+    <string name="input_password">请输入密码</string>
+    <string name="set_password">设置密码</string>
+    <string name="ensure_password">确认密码</string>
+
+    <string name="please_wait">请等待</string>
+    <string name="the_passwords_you_entered_do_not_match">您输入的密码不匹配</string>
+    <string name="ok">确定</string>
+    <string name="cancel">取消</string>
+
+
+    <!--wallet设置界面-->
+    <string name="wallet_name">钱包名</string>
+    <string name="password_hint">密码提示信息</string>
+    <string name="change_password">修改密码</string>
+    <string name="export_private_key">导出私钥</string>
+    <string name="export_keystore">导出keystore</string>
+    <string name="backup_mnemonics">备份助记词</string>
+    <string name="delete_wallet">删除钱包</string>
+
+    <string name="please_enter_password">请输入密码</string>
+    <string name="irrevocable_operation">请慎重,此操作无法撤销</string>
+
+    <string name="save">保存</string>
+
+    <string name="please_backup_mnemonic1">抄下你的钱包助记词</string>
+    <string name="please_backup_mnemonic2">确认你的钱包助记词</string>
+    <string name="backup_mnemonic_tip1">助记词用于恢复钱包或重置钱包密码,将它准确的抄写到纸上,并存放在只有你知道的安全的地方。</string>
+    <string name="backup_mnemonic_tip2">请按顺序点击助记词，以确认你的备份助记词正确。</string>
+    <string name="how_to_backup">查看备份详细教程</string>
+    <string name="btn_next">下一步</string>
+
+    <string name="backup_failed">备份失败</string>
+    <string name="backup_failed_reason">请检查你的助记词</string>
+    <string name="confirmed_mnemonic">你备份的助记词顺序验证正确,是否移除该助记词?</string>
+
+    <string name="change_pwd">更改密码</string>
+    <string name="current_pwd">当前密码</string>
+    <string name="new_pwd">新密码</string>
+    <string name="forget_pwd_tip">忘记密码?导入助记词或私钥可重置密码。</string>
+    <string name="forget_pwd_tip2">马上导入</string>
+    <string name="old_pwd_incorrect">旧密码不正确</string>
+    <string name="change_pwd_success">修改成功</string>
+
+    <string name="copy">复制</string>
+    <string name="copied">已复制</string>
+
+    <string name="keystore">Keystore 文件</string>
+    <string name="qrcode">二维码</string>
+    <string name="keystore_file_tip1">离线保存</string>
+    <string name="keystore_file_tip2">请复制粘贴 Keystore 文件到安全、离线的地方保存。切勿保存至邮箱、记事本、网盘、聊天工具等,非常危险</string>
+    <string name="keystore_file_tip3">请勿使用网络传输</string>
+    <string name="keystore_file_tip4">请勿通过网络工具传输 Keystore 文件,一旦被黑客获取将造成不可挽回的资产损失。建议离线设备通过扫二维码方式传输。</string>
+    <string name="keystore_file_tip5">密码保险箱保存</string>
+    <string name="keystore_file_tip6">如需在线保存，则建议使用安全等级更高的1Password等密码保管软件保存 Keystore</string>
+    <string name="keystore_qr_tip1">仅供直接扫码</string>
+    <string name="keystore_qr_tip2">二维码禁止保存、截图、以及拍照。仅供用户在安全环境下直接扫码来方便地导入钱包</string>
+    <string name="keystore_qr_tip3">在安全环境下使用</string>
+    <string name="keystore_qr_tip4">请在确保四周无人及无摄像头的情况下使用。二维码一旦被他人获取将造成不可挽回的资产损失</string>
+
+    <string name="export_pk_tip">安全警告:私钥未经加密,导出存在风险,建议使用助记词和 Keystore 进行备份。</string>
+
+
+</resources>

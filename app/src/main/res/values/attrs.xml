@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="PasswordLevelView">
+        <attr name="text_padding_level" format="dimension"/>
+        <attr name="text_size_level" format="dimension"/>
+    </declare-styleable>
+</resources>

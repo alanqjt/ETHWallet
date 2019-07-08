@@ -1,0 +1,111 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_ll"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="13dp"
+            android:lineSpacingExtra="6dp"
+            android:text="@string/official_text_tip"
+            android:textColor="#c1bfbf"
+            android:textSize="12sp" />
+
+
+        <EditText
+            android:id="@+id/ed_keystore_content"
+            android:layout_width="match_parent"
+            android:layout_height="112dp"
+            android:layout_marginTop="13dp"
+            android:background="@drawable/shape_edittext_white_bg"
+            android:gravity="top"
+            android:hint="@string/keystore_content_tip"
+            android:minLines="5"
+            android:textColorHint="@color/darkgray"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/ed_pwd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+
+            android:background="@null"
+            android:hint="@string/keystore_password_tip"
+            android:inputType="textPassword"
+            android:textColorHint="@color/darkgray"
+            android:textSize="14sp" />
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/gray_f6" />
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <CheckBox
+                android:id="@+id/femaleGroupID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:button="@drawable/btn_radio_sel"
+                android:paddingLeft="5dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:text="@string/agree_on_tip1"
+                android:textSize="14sp"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/text_userAgreement"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/agree_on_tip2"
+                android:textColor="@color/blue"
+                android:textSize="14sp"
+                app:layout_constraintBaseline_toBaselineOf="@id/femaleGroupID"
+                app:layout_constraintStart_toEndOf="@id/femaleGroupID" />
+
+        </android.support.constraint.ConstraintLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="75dp"
+        android:text="@string/what_is_a_keystore"
+        android:textColor="@color/blue"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/btn_Import"
+        style="?android:borderlessButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="16dp"
+        android:background="@drawable/selector_btn_blue"
+        android:enabled="false"
+        android:text="@string/start_importing"
+        android:textColor="@color/white" />
+
+
+</RelativeLayout>
