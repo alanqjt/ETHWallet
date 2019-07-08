@@ -16,3 +16,13 @@ ScreenShot
          
 ---------
 <img src="img/ethWallet7.png" width="360">    <img src="img/ethWallet8.png" width="360"> 
+
+
+
+<img src="img/createwallet.gif" width="360">    <img src="img/keystore_import.gif" width="360"> 
+
+
+<img src="img/privatekey.gif" width="360">    <img src="img/wordsimport.gif" width="360"> 
+
+
+<img src="img/backup.gif" width="360"> 
