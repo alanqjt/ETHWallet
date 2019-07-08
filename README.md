@@ -5,9 +5,9 @@
 
 助记词说明
 ---------
-如果想把助记词换成日文、法文、中文等(自己在BIP39，wordlists包创建)，Japanese.INSTANCE  French.INSTANCE
+如果想把助记词换成日文、法文、中文等(自己在BIP39，wordlists包创建)，Japanese.INSTANCE 或者 French.INSTANCE
 ```Java
-        // 12ge 英文单词
+        // 12个 英文单词
         //随机生成助记词
         StringBuilder sb = new StringBuilder();
         byte[] entropy = new byte[Words.TWELVE.byteLength()];
