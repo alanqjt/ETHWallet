@@ -40,19 +40,19 @@ ScreenShot
 创建钱包
 -------
 ```Java
-EthWalletManager wManager = new EthWalletManager();
-            wManager.createWallet(walletName, password, passwordHit, false, new EthWalletCallBack() {
+        EthWalletManager wManager = new EthWalletManager();
+        wManager.createWallet(walletName, password, passwordHit, false, new EthWalletCallBack() {
 
-                @Override
-                public void onSuccessCallBack(EthWallet ethWallet, String fileName, String walletAddress, String storeText) throws Exception {
+            @Override
+            public void onSuccessCallBack(EthWallet ethWallet, String fileName, String walletAddress, String storeText) throws Exception {
 
-                }
+            }
 
-                @Override
-                public void onErrorCallBack(Exception e) {
+            @Override
+            public void onErrorCallBack(Exception e) {
 
-                }
-            });
+            }
+        });
 ```
 
 
