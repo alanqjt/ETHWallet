@@ -59,19 +59,19 @@ EthWalletManager wManager = new EthWalletManager();
 导入钱包
 -------
 ```Java
-EthWalletManager wManager = new EthWalletManager();
-ECKeyPair ecKeyPair = wManager.generateECKeyPairByMnemonicWords(mnemonicWordsInAList, password);
-                            wManager.importWallet(ecKeyPair, walletName, password, PasswordHit, mnemonicWords, new EthWalletCallBack() {
-                                @Override
-                                public void onSuccessCallBack(EthWallet ethWallet, String fileName, String walletAddress, String storeText) throws Exception {
+        EthWalletManager wManager = new EthWalletManager();
+        ECKeyPair ecKeyPair = wManager.generateECKeyPairByMnemonicWords(mnemonicWordsInAList, password);
+        wManager.importWallet(ecKeyPair, walletName, password, PasswordHit, mnemonicWords, new EthWalletCallBack() {
+            @Override
+            public void onSuccessCallBack(EthWallet ethWallet, String fileName, String walletAddress, String storeText) throws Exception {
 
-                                }
+            }
 
-                                @Override
-                                public void onErrorCallBack(Exception e) {
+            @Override
+            public void onErrorCallBack(Exception e) {
 
-                                }
-                            });
+            }
+        });
 
 ```
 
