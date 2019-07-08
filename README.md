@@ -58,6 +58,7 @@ EthWalletManager wManager = new EthWalletManager();
 
 导入钱包
 -------
+```Java
 EthWalletManager wManager = new EthWalletManager();
 ECKeyPair ecKeyPair = wManager.generateECKeyPairByMnemonicWords(mnemonicWordsInAList, password);
                             wManager.importWallet(ecKeyPair, walletName, password, PasswordHit, mnemonicWords, new EthWalletCallBack() {
@@ -72,6 +73,6 @@ ECKeyPair ecKeyPair = wManager.generateECKeyPairByMnemonicWords(mnemonicWordsInA
                                 }
                             });
 
-
+```
 
 
