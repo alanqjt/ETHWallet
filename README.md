@@ -3,6 +3,51 @@
 此项目基于web3j开发的一个android的ETHWallet,其中包含了助记词生成、创建钱包、导入钱包等基础方法。并且包含了btc钱包的生成过程
 使用原生web3j生成ECKeyPair的时候 低端机型(华为P6)会闪退，原因是算法复杂度高，CPU使用过高,java运行的速度慢。解决方法把当需要调用web3j 调用SCrypt.scrypt()方法的时候把java算法换成使用JNI C库中的代码
 
+Btc钱包地址生成过程
+====
+如果有兴趣 务必运行 BtcTest  Module 中的com.alan.btctest.TestBtc
+---------
+```Java
+       BtcWallet btcWallet = new BtcWallet();
+        //助记词种子 byte
+        byte[] seed = getSeed(mnemonicWordsInAList);
+
+        DeterministicSeed deterministicSeed = new DeterministicSeed(mnemonicWordsInAList, seed, "", 0);
+
+        DeterministicKeyChain deterministicKeyChain = DeterministicKeyChain.builder().seed(deterministicSeed).build();
+        //这里运用了BIP44里面提到的算法, 44'是固定的, 后面的一个0'代表的是币种BTC
+
+        //EIP85  提议 以太坊 路径为 :  m/44'/60'/a'/0/n
+        //
+        //这里 的 a 表示帐号，n 是第 n 生成的地址，60 是在 SLIP44 提案中暂定的，因为 BIP44 只定义到 0 - 31。
+
+        byte[] privKeyBTC = deterministicKeyChain.getKeyByPath(parsePath("M/44/0/0/0/" + n), true).getPrivKeyBytes();
+
+        // 比特币创建的钱包 与连接的网络 有关  如果 选 TestNet   生成的地址一般是以 N \M 开头   MainNet 生成的地址是以 1  \ 3  开头
+        ECKey ecKey = ECKey.fromPrivate(privKeyBTC);
+        String publickey = Numeric.toHexStringNoPrefixZeroPadded(new BigInteger(ecKey.getPubKey()), 66);
+        String privateKey = ecKey.getPrivateKeyEncoded(MainNetParams.get()).toString();
+        System.out.println(" ----------------主钱包的 主公私钥 和地址---------------------------");
+        System.out.println("主 address:" + ecKey.toAddress(MainNetParams.get()).toBase58());
+        System.out.println("测 address:" + ecKey.toAddress(TestNet3Params.get()).toBase58());
+        System.out.println(" publickey:" + publickey.length());
+        System.out.println(" publickey:" + publickey);
+        System.out.println(" privateKey:" + privateKey.length());
+        System.out.println(" privateKey:" + privateKey);
+
+        System.out.println("head=" + MainNetParams.get().getAddressHeader());
+
+        System.out.println("-----------------通过公钥获取地址--------------------------");
+
+        String testNetAddress = getAddress(publickey, true, false);
+
+        System.out.println("-----------------Testnet pub key   n/m开头--------------------------");
+
+        String mainNetAddress_Standard_Public = getAddress(publickey, false, false);
+        System.out.println("-----------------P2PKH address    1开头--------------------------");
+        String mainNetAddress_Multi_Signature = getAddress(publickey, false, true);
+        System.out.println("-----------------P2SH address     3开头--------------------------");
+```
 
 ScreenShot
 ==========
