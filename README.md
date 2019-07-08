@@ -34,6 +34,17 @@ ScreenShot
 <img src="img/backup.gif" width="360"> 
 
 
+使用
+===
+
+创建钱包
+-------
+```Java
+EthWalletManager wManager = = new EthWalletManager();
+```
+
+
+
 
 
 
