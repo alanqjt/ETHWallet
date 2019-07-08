@@ -1,12 +1,8 @@
 ScreenShot
 ==========
 
-<img src="img/ethWallet1.png" width="360">
+<img src="img/ethWallet1.png" width="240"> <img src="img/ethWallet2.png" width="240"> <img src="img/ethWallet3.png" width="240">
 
-![](img/ethWallet1.png)  ![](img/ethWallet2.png)  ![](img/ethWallet3.png)  ![](img/ethWallet4.png)  
-
-
-![](img/ethWallet5.png)  ![](img/ethWallet6.png)  ![](img/ethWallet7.png)  ![](img/ethWallet8.png)  
 
 
 
