@@ -59,9 +59,10 @@ ScreenShot
 导入钱包
 -------
 ```Java
+         //助记词导入钱包
         EthWalletManager wManager = new EthWalletManager();
         ECKeyPair ecKeyPair = wManager.generateECKeyPairByMnemonicWords(mnemonicWordsInAList, password);
-        wManager.importWallet(ecKeyPair, walletName, password, PasswordHit, mnemonicWords, new EthWalletCallBack() {
+        wManager.importWallet(ecKeyPair, walletName, password, passwordHit, mnemonicWords, new EthWalletCallBack() {
             @Override
             public void onSuccessCallBack(EthWallet ethWallet, String fileName, String walletAddress, String storeText) throws Exception {
 
@@ -75,4 +76,21 @@ ScreenShot
 
 ```
 
+```Java
+         //私钥导入钱包
+        EthWalletManager wManager = new EthWalletManager();
+        ECKeyPair ecKeyPair = wManager.generateECKeyPairByPK(pk_text, password);
+                wManager.importWallet(ecKeyPair, walletName, password, passwordHit, mnemonicWords, new EthWalletCallBack() {
+            @Override
+            public void onSuccessCallBack(EthWallet ethWallet, String fileName, String walletAddress, String storeText) throws Exception {
+
+            }
+
+            @Override
+            public void onErrorCallBack(Exception e) {
+
+            }
+        });
+
+```
 
