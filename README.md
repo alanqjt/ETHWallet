@@ -1,4 +1,14 @@
-ScreenShot
+
+目录
+====
+
+* [效果演示](#效果演示)
+* [说明](#说明)
+* [Btc资料](#Btc资料)
+* [助记词说明](#助记词说明)
+* [使用](#使用)
+
+效果演示
 ==========
 
 部分界面效果
@@ -63,7 +73,7 @@ Btc钱包地址生成过程
 如果有兴趣 可运行 BtcTest  Module 中的com.alan.btctest.TestBtc
 ---------
 ```Java
-       BtcWallet btcWallet = new BtcWallet();
+        BtcWallet btcWallet = new BtcWallet();
         //助记词种子 byte
         byte[] seed = getSeed(mnemonicWordsInAList);
 
