@@ -99,7 +99,7 @@ DeterministicKeyChain deterministicKeyChain = DeterministicKeyChain.builder().se
 
 byte[] privKeyBTC = deterministicKeyChain.getKeyByPath(parsePath("M/44/0/0/0/" + n), true).getPrivKeyBytes();        
 
-// 比特币创建的钱包 与连接的网络 有关  如果 选 TestNet   生成的地址一般是以 N \M 开头   MainNet 生成的地址是以 1  \ 3  开头       
+// 比特币创建的钱包 与连接的网有关,如果选TestNet生成的地址一般是以 N \M 开头,MainNet生成的地址是以 1 \ 3开头       
 ECKey ecKey = ECKey.fromPrivate(privKeyBTC);       
 String publickey = Numeric.toHexStringNoPrefixZeroPadded(new BigInteger(ecKey.getPubKey()), 66);
 String privateKey = ecKey.getPrivateKeyEncoded(MainNetParams.get()).toString();
