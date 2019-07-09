@@ -1,6 +1,6 @@
 ETHWallet
 ========
-此项目为个人区块链钱包的学习，感谢前人的探索，这里只是总结。
+此项目为以前个人区块链钱包项目抽出的部分，其中包含ETH钱包生成、导入等基础功能，以及BTC钱包地址生成过程和使用的算法。感谢前人的探索，这里只是总结，希望对你有所帮助。
 
 
 [![](https://img.shields.io/badge/web3j-3.3.1-brightgreen.svg)](https://github.com/web3j/web3j)
