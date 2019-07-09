@@ -1,5 +1,7 @@
 ETHWallet
 ========
+此项目为个人区块链钱包的学习，感谢前人的探索，这里只是总结。
+
 
 [![](https://img.shields.io/badge/web3j-3.3.1-brightgreen.svg)](https://github.com/web3j/web3j)
 [![](https://img.shields.io/badge/bitcoinj-0.14.7-brightgreen.svg)](https://github.com/bitcoinj/bitcoinj)
@@ -13,7 +15,7 @@ ETHWallet
 
 * [效果演示](#效果演示)
 * [说明](#说明)
-* [Btc资料](#Btc资料)
+* [BTC资料](#BTC资料)
 * [助记词说明](#助记词说明)
 * [ETH钱包](#ETH钱包)
 
@@ -54,7 +56,7 @@ ETHWallet
 此项目基于web3j开发的一个android的ETHWallet,其中包含了助记词生成、创建钱包、导入钱包等基础方法。并且包含了btc钱包的生成过程
 使用原生web3j生成ECKeyPair的时候 低端机型(华为P6)会闪退，原因是算法复杂度高，CPU使用过高,java运行的速度慢。解决方法把当需要调用web3j 调用SCrypt.scrypt()方法的时候把java算法换成使用JNI C库中的代码
 
-Btc资料
+BTC资料
 -------
 [bitcoin地址是如何生成的](https://www.jianshu.com/p/954e143e97d2)
 
