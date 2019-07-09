@@ -79,7 +79,7 @@ new MnemonicGenerator(English.INSTANCE).createMnemonic(entropy, sb::append);
 System.out.println(sb.toString());
 String[] parts = sb.toString().split(" ");
 ```
-Btc钱包地址生成过程
+BTC钱包地址生成过程
 ====
 如果有兴趣 可运行 BtcTest  Module 中的com.alan.btctest.TestBtc
 ---------
