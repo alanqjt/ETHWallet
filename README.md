@@ -15,9 +15,8 @@ ETHWallet
 
 * [效果演示](#效果演示)
 * [关于ETH钱包](#关于ETH钱包)
-* [BTC资料](#BTC资料)
 * [助记词说明](#助记词说明)
-* [ETH钱包](#ETH钱包)
+* [BTC资料](#BTC资料)
 
 效果演示
 ==========
@@ -56,15 +55,48 @@ ETHWallet
 此项目基于web3j开发的一个android的ETHWallet,其中包含了助记词生成、创建钱包、导入钱包等基础方法。
 使用原生web3j生成ECKeyPair的时候 低端机型(华为P6)会闪退，原因是算法复杂度高，CPU使用过高,java运行的速度慢。解决方法把当需要调用web3j 调用SCrypt.scrypt()方法的时候把java算法换成使用JNI C库中的代码
 
-BTC资料
+
+创建钱包
 -------
-[bitcoin地址是如何生成的](https://www.jianshu.com/p/954e143e97d2)
+```Java
+EthWalletManager wManager = new EthWalletManager();
+wManager.createWallet(walletName, password, passwordHit, false, new EthWalletCallBack() {
 
-[获取测试比特币(科学上网)](https://testnet.manu.backend.hamburg/faucet)
+    @Override
+    public void onSuccessCallBack(EthWallet ethWallet, String fileName, String walletAddress, String storeText) throws Exception {
 
-[查询测试比特币余额](https://btc.com/)
+    }
 
-[地址意义说明](https://learnku.com/articles/5087/bitcoin-test-chain-testnet)
+    @Override
+    public void onErrorCallBack(Exception e) {
+
+    }
+});
+```
+
+
+导入钱包
+-------
+```Java
+//三种方法导入
+EthWalletManager wManager = new EthWalletManager();        
+ECKeyPair ecKeyPair = wManager.generateECKeyPairByMnemonicWords(mnemonicWordsInAList, password);//助记词导入钱包        
+ECKeyPair ecKeyPair = wManager.generateECKeyPairByKeyStore(keystore_content, password) //keystore导入钱包        
+ECKeyPair ecKeyPair = wManager.generateECKeyPairByPK(pk_text, password);//私钥导入钱包       
+wManager.importWallet(ecKeyPair, walletName, password, passwordHit, mnemonicWords, new EthWalletCallBack() {
+    @Override
+    public void onSuccessCallBack(EthWallet ethWallet, String fileName, String walletAddress, String storeText) throws Exception {
+
+    }
+
+    @Override
+    public void onErrorCallBack(Exception e) {
+
+    }
+});
+
+```
+
 
 助记词说明
 ---------
@@ -79,6 +111,20 @@ new MnemonicGenerator(English.INSTANCE).createMnemonic(entropy, sb::append);
 System.out.println(sb.toString());
 String[] parts = sb.toString().split(" ");
 ```
+
+
+
+BTC资料
+-------
+[bitcoin地址是如何生成的](https://www.jianshu.com/p/954e143e97d2)
+
+[获取测试比特币(科学上网)](https://testnet.manu.backend.hamburg/faucet)
+
+[查询测试比特币余额](https://btc.com/)
+
+[地址意义说明](https://learnku.com/articles/5087/bitcoin-test-chain-testnet)
+
+
 BTC钱包地址生成过程
 ====
 如果有兴趣 可运行 BtcTest  Module 中的com.alan.btctest.TestBtc
@@ -123,51 +169,6 @@ String mainNetAddress_Standard_Public = getAddress(publickey, false, false);
 System.out.println("-----------------P2PKH address    1开头--------------------------");
 String mainNetAddress_Multi_Signature = getAddress(publickey, false, true);
 System.out.println("-----------------P2SH address     3开头--------------------------");
-```
-
-
-ETH钱包
-===
-
-创建钱包
--------
-```Java
-EthWalletManager wManager = new EthWalletManager();
-wManager.createWallet(walletName, password, passwordHit, false, new EthWalletCallBack() {
-
-    @Override
-    public void onSuccessCallBack(EthWallet ethWallet, String fileName, String walletAddress, String storeText) throws Exception {
-
-    }
-
-    @Override
-    public void onErrorCallBack(Exception e) {
-
-    }
-});
-```
-
-
-导入钱包
--------
-```Java
-//三种方法导入
-EthWalletManager wManager = new EthWalletManager();        
-ECKeyPair ecKeyPair = wManager.generateECKeyPairByMnemonicWords(mnemonicWordsInAList, password);//助记词导入钱包        
-ECKeyPair ecKeyPair = wManager.generateECKeyPairByKeyStore(keystore_content, password) //keystore导入钱包        
-ECKeyPair ecKeyPair = wManager.generateECKeyPairByPK(pk_text, password);//私钥导入钱包       
-wManager.importWallet(ecKeyPair, walletName, password, passwordHit, mnemonicWords, new EthWalletCallBack() {
-    @Override
-    public void onSuccessCallBack(EthWallet ethWallet, String fileName, String walletAddress, String storeText) throws Exception {
-
-    }
-
-    @Override
-    public void onErrorCallBack(Exception e) {
-
-    }
-});
-
 ```
 
 
