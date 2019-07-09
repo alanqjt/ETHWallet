@@ -18,7 +18,7 @@
 ```
 Btc钱包地址生成过程
 ====
-如果有兴趣 务必运行 BtcTest  Module 中的com.alan.btctest.TestBtc
+如果有兴趣 可运行 BtcTest  Module 中的com.alan.btctest.TestBtc
 ---------
 ```Java
        BtcWallet btcWallet = new BtcWallet();
@@ -118,8 +118,8 @@ ScreenShot
 -------
 ```Java
         //三种方法导入
-        EthWalletManager wManager = new EthWalletManager();//助记词导入钱包
-        ECKeyPair ecKeyPair = wManager.generateECKeyPairByMnemonicWords(mnemonicWordsInAList, password);
+        EthWalletManager wManager = new EthWalletManager();
+        ECKeyPair ecKeyPair = wManager.generateECKeyPairByMnemonicWords(mnemonicWordsInAList, password);//助记词导入钱包
         ECKeyPair ecKeyPair = wManager.generateECKeyPairByKeyStore(keystore_content, password) //keystore导入钱包
         ECKeyPair ecKeyPair = wManager.generateECKeyPairByPK(pk_text, password);//私钥导入钱包
         wManager.importWallet(ecKeyPair, walletName, password, passwordHit, mnemonicWords, new EthWalletCallBack() {
