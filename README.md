@@ -1,6 +1,6 @@
 ETHWallet
 ========
-[![](https://img.shields.io/badge/测试-标签-brightgreen.svg)](https://www.baidu.com)
+[![](https://img.shields.io/badge/FlowLayout-1.1.2-brightgreen.svg)](https://github.com/hongyangAndroid/FlowLayout)
 
 
 目录
