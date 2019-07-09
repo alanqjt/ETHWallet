@@ -14,7 +14,7 @@ ETHWallet
 ====
 
 * [效果演示](#效果演示)
-* [说明](#说明)
+* [关于ETH钱包](#关于ETH钱包)
 * [BTC资料](#BTC资料)
 * [助记词说明](#助记词说明)
 * [ETH钱包](#ETH钱包)
@@ -51,9 +51,9 @@ ETHWallet
 
 
 
-说明
+关于ETH钱包
 ====
-此项目基于web3j开发的一个android的ETHWallet,其中包含了助记词生成、创建钱包、导入钱包等基础方法。并且包含了btc钱包的生成过程
+此项目基于web3j开发的一个android的ETHWallet,其中包含了助记词生成、创建钱包、导入钱包等基础方法。
 使用原生web3j生成ECKeyPair的时候 低端机型(华为P6)会闪退，原因是算法复杂度高，CPU使用过高,java运行的速度慢。解决方法把当需要调用web3j 调用SCrypt.scrypt()方法的时候把java算法换成使用JNI C库中的代码
 
 BTC资料
